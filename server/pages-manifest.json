@@ -1,0 +1,22 @@
+{
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/auth/login": "pages/auth/login.html",
+  "/404": "pages/404.html",
+  "/create-new-department": "pages/create-new-department.html",
+  "/create-new-employee": "pages/create-new-employee.html",
+  "/_app": "pages/_app.js",
+  "/auth/register": "pages/auth/register.html",
+  "/department-detail/[uid]": "pages/department-detail/[uid].html",
+  "/employee-detail/[uid]": "pages/employee-detail/[uid].html",
+  "/departments": "pages/departments.html",
+  "/employees": "pages/employees.html",
+  "/issue-map": "pages/issue-map.html",
+  "/": "pages/index.html",
+  "/employer": "pages/employer.html",
+  "/issues": "pages/issues.html",
+  "/issues/[id]": "pages/issues/[id].html",
+  "/settings": "pages/settings.html",
+  "/update-employee/[uid]": "pages/update-employee/[uid].html",
+  "/update-department/[uid]": "pages/update-department/[uid].html"
+}
