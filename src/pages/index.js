@@ -12,26 +12,12 @@ import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
 import { OverviewDepartmentList } from 'src/sections/overview/overview-department-list';
 import { OverviewServiceIssuesGraph } from 'src/sections/overview/overview-service-issues-graph';
 import { OverviewIssueTypeGraph } from 'src/sections/overview/overview-issue-type-graph';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {endOfMonth, format, startOfMonth} from "date-fns";
 
-//import {useAuth} from "../contexts/auth-context";
-import {useAuth} from "../hooks/use-auth";
 import createApiInstance from '../utils/api';
-import { columnsStateInitializer } from '@mui/x-data-grid/internals';
 
 const Page = () => {
-  // const user  = useAuth();
-  //
-  // if (!user) {
-  //     // V případě, že uživatel není přihlášen, nic nezobrazujeme
-  //     return null;
-  // }else{
-  //     console.log(user);
-  //     //console.log(user.user.accessToken);
-  //   //console.log(user.user.accessToken);
-  //   //console.log(user.user.reloadUserInfo.customAttributes);
-  // }
 
   const instance = createApiInstance();
   const [service, setService] = useState(null);
@@ -53,7 +39,6 @@ const Page = () => {
     try {
       const response = await instance.get(`/api/v1/services/me`);
       setService(response.data);
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +92,6 @@ const Page = () => {
       try {
         if (service) {
           const startDate = format(startOfMonth(new Date()), 'yyyy-MM-dd');
-          console.log(startDate);
           const responseSolved = await instance.get(`api/v1/issues/service/${service.uid}/count?from=${startDate}&statuses=SOLVED`);
           const responseSolving = await instance.get(`api/v1/issues/service/${service.uid}/count?from=${startDate}&statuses=SOLVING`);
           const responsePublished = await instance.get(`api/v1/issues/service/${service.uid}/count?from=${startDate}&statuses=PUBLISHED`);
@@ -132,7 +116,6 @@ const Page = () => {
   const getYearlyGraphData = async () => {
     try {
       if (service) {
-        console.log("zacatek year dat");
         const currentYear = new Date().getFullYear();
         const lastYear = currentYear - 1;
         const months = Array.from({ length: 12 }, (_, month) => month);
@@ -160,8 +143,6 @@ const Page = () => {
           thisYear: thisYearCounts,
           lastYear: lastYearCounts,
         });
-        console.log("yearly graph data");
-        console.log(yearlyGraphData);
       }
     } catch (error) {
       console.log(error);
@@ -172,7 +153,6 @@ const Page = () => {
   useEffect(() => {
     const fetchData = async () => {
       await getService();
-      console.log("service fetched")
     };
     fetchData();
   }, []);
@@ -207,11 +187,6 @@ const Page = () => {
           <Grid item xs={12} sx={{paddingTop: 0}}>
             <Card>
               <CardContent>
-                {/*<Avatar*/}
-                {/*  src={service && service.photo}*/}
-                {/*  alt="Service Photo"*/}
-                {/*  sx={{ width: 56, height: 56, marginRight: 2 }}*/}
-                {/*/>*/}
                 <Typography variant="h5">{service ? service.name : null}</Typography>
               </CardContent>
             </Card>

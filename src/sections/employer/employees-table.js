@@ -83,7 +83,7 @@ export const EmployeesTable = (props) => {
                     key={employer + index}
                   >
                     <TableCell id={"detail"+index}>
-                      <a href={'/employee-detail/JPnGCEj5sgTfC4xTde6VmKzIR1Y2'}>
+                      <a href={'PM2-Frontend---employee/employee-detail/JPnGCEj5sgTfC4xTde6VmKzIR1Y2'}>
                       details
                       </a>
                     </TableCell>

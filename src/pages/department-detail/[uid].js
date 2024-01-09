@@ -34,7 +34,6 @@ const Page = () => {
 
     const getDepartment = async () => {
         try {
-            console.log(uid);
             const response = await instance.get(`/api/v1/departments/${uid}`);
             setDepartment(response.data);
         } catch (error) {
@@ -47,7 +46,6 @@ const Page = () => {
     const getDepartmentEmployees = async () => {
         try {
             const response = await instance.get(`api/v1/departments/${department.uid}/employees`);
-            console.log(response);
             const formattedEmployees = response.data.map(employee => ({
                 uid: employee.uid,
                 email: employee.email,

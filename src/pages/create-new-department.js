@@ -43,7 +43,6 @@ const CreateDepartmentPage = () => {
                     phoneNumber,
                     categories: departmentCategories,
                 };
-                console.log(departmentData);
                 await instance.post('/api/v1/departments', departmentData);
                 // Redirect to the employee list page or wherever you want to navigate after creation
                 router.push('/departments');
@@ -62,7 +61,6 @@ const CreateDepartmentPage = () => {
         const getDepartmentCategories = async () => {
             try {
                 const response = await instance.get(`/api/v1/categories`);
-                console.log(response.data);
                 const departmentCategoriesData = response.data;
                 setFetchedDepartmentCategories(departmentCategoriesData);
                 console.log(departmentCategoriesData);

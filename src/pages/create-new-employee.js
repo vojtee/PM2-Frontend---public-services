@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-import { Layout as AuthLayout } from 'src/layouts/auth/layout';
 import { Select, MenuItem, FormControl, InputLabel, FormHelperText } from '@mui/material';
 import createApiInstance from '../utils/api';
 import { useState, useEffect } from 'react'
@@ -35,7 +34,6 @@ const CreateEmployeePage = () => {
         }),
         onSubmit: async (values, helpers) => {
             try {
-                console.log(values);
                 const { firstName, lastName, password, phoneNumber, email, department } = values;
 
                 const employeeData = {
@@ -46,7 +44,6 @@ const CreateEmployeePage = () => {
                     departmentUid: department,
                     password,
                 };
-                console.log(employeeData);
                 await instance.post('/api/v1/employees', employeeData);
                 // Redirect to the employee list page or wherever you want to navigate after creation
                 router.push('/employees');

@@ -6,7 +6,6 @@ import {OverviewLatestIssues} from "../../sections/overview/overview-latest-issu
 import Head from "next/head";
 import {OverviewSolvedIssuesGraph} from "../../sections/overview/overview-solved-issues-graph";
 import { useState, useEffect } from 'react'
-import {useAuth} from "../../hooks/use-auth";
 import createApiInstance from "../../utils/api";
 import { subMonths, startOfMonth, endOfMonth, format } from 'date-fns';
 import { useRouter } from 'next/router';

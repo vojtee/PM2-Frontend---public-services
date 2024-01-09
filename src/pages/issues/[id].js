@@ -29,7 +29,6 @@ import {
     const getIssue = async (id) => {
       try {
         const issueResponse = await instance.get('/api/v1/issues/' + id);
-        console.log(issueResponse.data);
         setIssue({
           id: issueResponse.data.id,
           photo: issueResponse.data.photo,
