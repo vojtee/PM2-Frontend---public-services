@@ -92,7 +92,7 @@ export const AuthProvider = (props) => {
     if (isAuthenticated) {
       // Příklad načtení uživatele z Firebase Auth
       const auth = getAuth();
-      const userCredential = await signInWithEmailAndPassword(auth, 'testemployee@gmail.com', '12345678');
+      const userCredential = await signInWithEmailAndPassword(auth, 'testeservice@gmail.com', '12345678');
       const user = userCredential.user;
 
       dispatch({
